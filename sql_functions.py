@@ -30,6 +30,18 @@ def sql_add_new_spiker(tg_id, start_date, duration=None, subject=None, delay=Non
         db.close()
 
 
+def sql_register_messages(guest, speaker, message):
+    with sqlite3.connect(BASE) as db:
+        cur = db.cursor()
+        query = f"""
+            INSERT INTO 'messages' (guest, speaker, message)
+            VALUES ('{guest}', '{speaker}', '{message}')
+            """
+        cur.execute(query)
+        db.commit()
+        db.close()
+
+
 def sql_get_user_data(tg_id) -> dict:
     with sqlite3.connect(BASE) as db:
         cur = db.cursor()
