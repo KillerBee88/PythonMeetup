@@ -3,6 +3,17 @@ import sqlite3
 BASE = 'meetup.db'
 
 
+def sql_create_base():
+    with sqlite3.connect(BASE) as db:
+        cur = db.cursor()
+        query = """
+            CREATE TABLE IF NOT EXISTS expenses(tg_id TEXT, name TEXT)
+            """
+        cur.execute(query)
+        db.commit()
+        db.close()
+
+
 def sql_register_new_user(tg_id, name):
     with sqlite3.connect(BASE) as db:
         cur = db.cursor()
@@ -85,3 +96,4 @@ def calculate_end_date(start, duration):
 
 
 print(calculate_end_date('13:45', '1:20'))
+sql_create_base()
