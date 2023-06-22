@@ -10,7 +10,8 @@ from telebot import types
 from dotenv import load_dotenv
 
 load_dotenv()
-token = os.getenv('TELEGRAM_BOT_API_TOKEN')
+# token = os.getenv('TELEGRAM_MEETUP_BOT_API_TOKEN')
+token = '5997099999:AAExP16I4FUFWZfn3NLWhF4yUI00e-pQi3k'
 bot = telebot.TeleBot(token)
 conference = [('знакомство', '10:00 - 11:00', 'Иван'), ('прощание', '11:00 - 12:00', 'Юрий')]
 # conn = sqlite3.connect('conference/db.sqlite3', check_same_thread=False)
